@@ -1,0 +1,615 @@
+/* Global */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+body {
+  background: black;
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  text-align: center;
+}
+
+label {
+  color: white;
+  color: black;
+  font-size: 13px;
+}
+
+button {
+  background: linear-gradient(to right, #f85259, #8b11ba);
+  background: #212121;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-bottom: 2px solid #29bda3;
+  border-bottom: 2px solid black;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: black;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+input[type="color"] {
+  padding: 0;
+  width: 25px;
+}
+
+select {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: none;
+  border: 2px solid black;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: black;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.text_style_group {
+  margin-bottom: 6.5%;
+}
+
+.text_style_label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text_style_group_input {
+  display: flex;
+}
+
+.text_style_group_input :nth-child(2) {
+  margin-left: 5%;
+}
+
+.input_group {
+  margin-bottom: 6.5%;
+}
+
+.input_group button {
+  margin-top: 20px;
+}
+
+.input_group__input {
+  display: flex;
+}
+
+.input_group__input input[type="text"] {
+  flex: 7;
+}
+
+.input_group__input input[type="checkbox"] {
+  flex: 1;
+}
+
+/* Base div in html */
+
+#app {
+  backdrop-filter: blur(7px);
+  height: 100%;
+  width: 100%;
+}
+
+.app__content {
+  background: linear-gradient(to top, #26249b, #14a1af);
+  background: #e1e1e1f1;
+  border-radius: 70px;
+  box-shadow: 0 0 20px black;
+  display: inline-block;
+  height: 92%;
+  margin: auto;
+  width: 90%;
+  padding: 25px 25px;
+}
+
+.login_screen {
+  background: rgb(0, 0, 0, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 0 15px white;
+  color: white;
+  left: 50%;
+  padding: 25px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.login_screen h2 {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.login__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 10px;
+  font-size: 20px;
+  background: none;
+  color: white;
+}
+
+.login_form {
+  width: 250px;
+  padding: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.login_form__link {
+  background: none;
+  margin-top: 20px;
+}
+
+.login_form label {
+  color: white;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.login_form input {
+  padding: 7px 10px;
+  border: none;
+  background: #808080;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.login_form button[type="submit"] {
+  color: black;
+  background-color: white;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Header */
+#header {
+  position: fixed;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width: inherit;
+  padding: 0 25px;
+  box-sizing: border-box;
+}
+
+.header__right {
+  color: black;
+  font-size: 14px;
+}
+
+.login_state {
+  display: flex;
+  align-items: center;
+}
+
+.login_state__icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 20px;
+  border: 2px solid black;
+}
+
+.login_state p {
+  padding-left: 7px;
+}
+
+.header__right * {
+  margin: 0;
+}
+
+#header > * {
+  display: inline;
+}
+
+#header a {
+  color: black;
+  text-decoration: none;
+  padding: 5px 17px;
+  font-size: 13px;
+  position: relative;
+  margin-right: 30px;
+}
+
+#header a:after,
+#header a:before {
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: calc(50% - 1px);
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease-in-out;
+}
+
+#header a:hover:after,
+#header a:hover:before {
+  opacity: 0.5;
+}
+
+#header nav a:before {
+  content: "[";
+  left: 0;
+}
+
+#header nav a:after {
+  content: "]";
+  right: 0;
+}
+
+#profile {
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 30px;
+  text-align: left;
+}
+
+.profile__header {
+  border-bottom: 1px solid black;
+}
+
+.profile__memes {
+  padding-top: 1%;
+  overflow: auto;
+}
+
+.profile__memes .saved_meme {
+  display: inline-block;
+  position: relative;
+  width: 18%;
+  margin: 1% 1%;
+  border: 4px solid black;
+  box-sizing: border-box;
+}
+
+.saved_meme__actions img:hover {
+  cursor: pointer;
+}
+
+.saved_meme__actions {
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.saved_meme__actions * {
+  margin: 3px;
+}
+
+.saved_meme__delete {
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 0 10px black;
+  color: white;
+  left: 50%;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+}
+
+.saved_meme__delete * {
+  margin: 0;
+}
+
+.saved_meme__delete p {
+  text-align: center;
+}
+
+.saved_meme__delete__buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+.saved_meme__delete__buttons button {
+  padding: 10px;
+  color: black;
+  background: white;
+  border-radius: 10px;
+}
+
+.saved_meme > img {
+  width: 100%;
+}
+
+/* Meme Generator */
+#meme_generator {
+  border-radius: 15px;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  margin: auto;
+  padding: 25px;
+  text-align: left;
+  max-width: 1300px;
+  min-width: 0;
+}
+
+#meme_generator h2 {
+  margin: 0;
+}
+
+.meme_generator__header {
+  margin-bottom: 20px;
+}
+
+.meme_form,
+.meme_holder {
+	width: 50%;
+}
+
+/* Meme Form */
+.meme_form {
+  display: flex;
+  align-items: center;
+}
+
+.meme_form form {
+  width: 100%;
+}
+
+.meme_texts {
+  min-height: 400px;
+  max-height: 500px;
+  overflow: auto;
+  padding: 20px;
+  background: #808080;
+  border: 5px solid white;
+}
+
+.meme_text {
+  color: black;
+  width: 100%;
+  background: white;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.meme_text h4 {
+  margin: 5px 0;
+}
+
+.meme_text_options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.meme_text_option {
+  flex: 40%;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.meme_text_option button {
+  margin: 0 10px;
+}
+
+.editor_buttons {
+  margin: 2.5% 0;
+}
+
+/* Meme Holder */
+.meme_holder {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-right: 100px;
+}
+
+.meme_holder__img {
+  position: relative;
+  border: 5px solid white;
+  max-width: 600px;
+  box-sizing: border-box;
+  height: 600px;
+  background: black;
+}
+
+.meme_holder__img img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.myCanvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+}
+
+.create_image {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.create_image__upload {
+  background: grey;
+  position: relative;
+  flex: 50%;
+}
+
+.create_image__upload h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+}
+
+.create_image__upload input {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.create_image__upload input:hover {
+  cursor: pointer;
+}
+
+.create_image__generate {
+  position: relative;
+  background: black;
+  flex: 50%;
+}
+
+.create_image__generate button {
+  background: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-left: 0;
+  font-size: 23px;
+}
+
+/* Doofenshmirtz Footer */
+.app__doof {
+  bottom: 0;
+  color: white;
+  left: 0;
+  overflow: hidden;
+  padding: 20px 0;
+  padding-top: 50px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+.app__doof h2 {
+  color: rgb(240, 240, 240);
+  font-size: 70px;
+  margin: 0;
+  margin-right: 15px;
+  text-shadow: 0 0 10px black;
+}
+
+.app__doof img {
+  left: 50%;
+  position: absolute;
+  top: 85%;
+  transform: translate(-50%, -50%);
+  width: 325px;
+}
+
+.app__doof img:hover {
+  animation-duration: 0.25s;
+  animation-name: doof;
+  animation-iteration-count: infinite;
+}
+
+@keyframes doof {
+  0% {
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+  }
+
+  20% {
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%) rotateZ(5deg) translateY(4px);
+  }
+
+  40% {
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%) rotateZ(-2deg) translateY(2px);
+  }
+
+  65% {
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%) rotateZ(3deg) translateY(-3px);
+  }
+
+  85% {
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%) rotateZ(-7deg) translateY(5px);
+  }
+}
+
+/* Media queries */
+@media screen and (max-width: 1550px) {
+  #meme_generator {
+    padding: 70px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .meme_holder__img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .input_group {
+    margin-bottom: 2%;
+  }
+
+  #meme_generator {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 40px;
+    padding-bottom: 10px;
+  }
+
+  .meme_holder__img {
+    height: 100%;
+  }
+
+  .meme_form,
+  .meme_holder {
+    height: 50%;
+  }
+
+  .meme_form {
+    box-sizing: border-box;
+    padding: 10px;
+  }
+
+  .meme_holder {
+    padding-right: 0;
+  }
+}
