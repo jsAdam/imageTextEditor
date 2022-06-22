@@ -3,7 +3,6 @@ import styles from './App.module.css';
 import LoginScreen from './components/Login/LoginScreen';
 import Generator from './components/Generator/Generator';
 import Profile from './components/Profile/Profile';
-import doofenshmirtz from './images/doofenshmirtz.png';
 import $ from 'jquery';
 
 export class App extends Component {
